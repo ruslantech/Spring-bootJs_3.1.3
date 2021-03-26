@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
+
+</head>
+
+<body class="text-center">
+
+<form class="form-signin" method="post" th:action="@{/login}">
+    <h1 class="h3 mb-3 font-weight-bold ">Please sign in</h1>
+    <div class="form-group">
+
+        <div class="col-xs-20">
+
+            <div th:if="${param.error}">
+
+                <div class="alert alert-danger col-xs-offset-1 col-xs-15">
+                    Invalid username or password.
+                </div>
+
+            </div>
+
+            <div th:if="${param.logout}">
+
+                <div class="alert alert-danger col-xs-offset-1 col-xs-15">
+                    You have been logged out.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <label for="first-name" class="sr-only">First name</label>
+    <input type="text" id="first-name" class="form-control" placeholder="First name" name="j_username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="j_password" required>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+
+</body>
+</html>
